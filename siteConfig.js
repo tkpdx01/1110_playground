@@ -26,7 +26,7 @@ const siteConfig = {
   // as the package.json file for now
   customDocsPath: path.basename(__dirname) + '/docs',
 
-  title: 'Test Site', // Title for your website.
+  title: '1110 PLAYGROUND', // Title for your website.
   tagline: 'A website for testing',
   url: 'https://your-docusaurus-test-site.com', // Your website URL
   baseUrl: '/', // Base URL for your project */
@@ -78,7 +78,7 @@ const siteConfig = {
   */
 
   // This copyright info is used in /core/Footer.js and blog RSS/Atom feeds.
-  copyright: `Copyright © ${new Date().getFullYear()} Your Name or Your Company Name`,
+  copyright: `Copyright © ${new Date().getFullYear()} 1110 Playground`,
 
   highlight: {
     // Highlight.js theme to use for syntax highlighting in code blocks.
