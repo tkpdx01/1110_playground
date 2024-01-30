@@ -35,8 +35,8 @@ const siteConfig = {
   //   baseUrl: '/test-site/',
 
   // Used for publishing and more
-  projectName: '1110playground',
-  organizationName: '1110',
+  projectName: 'test-site',
+  organizationName: 'facebook',
   // For top-level user or org sites, the organization is still the same.
   // e.g., for the https://JoelMarcey.github.io site, it would be set like...
   //   organizationName: 'JoelMarcey'
@@ -78,7 +78,7 @@ const siteConfig = {
   */
 
   // This copyright info is used in /core/Footer.js and blog RSS/Atom feeds.
-  copyright: `Copyright © ${new Date().getFullYear()} 1110`,
+  copyright: `Copyright © ${new Date().getFullYear()} 1110 Playground`,
 
   highlight: {
     // Highlight.js theme to use for syntax highlighting in code blocks.
