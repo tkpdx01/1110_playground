@@ -1,0 +1,36 @@
+name: Build and Deploy
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+          fetch-depth: 0  # 确保获取完整的历史记录以正确提交
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: '20'
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Build
+        run: npm run build
+
+      - name: Commit and Push
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add build/
+          git commit -m "Automated build commit" || exit 0  # 防止没有变更时报错
+          git push origin HEAD:${{ github.ref }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN_1110 }}
+
