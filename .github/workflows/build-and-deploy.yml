@@ -30,6 +30,7 @@ jobs:
           git config --local user.name "GitHub Action"
           git add build/
           git commit -m "Automated build commit" || exit 0  # Prevents failure when no changes
-          git push https://${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }} HEAD:${{ github.ref }}
+          git push https://${{ secrets.TOKEN_1110 }}:x-oauth-basic@github.com/${{ github.repository }} HEAD:${{ github.ref }}
         env:
-          GITHUB_TOKEN: ${{ secrets.TOKEN_1110 }}  # 确保在 GitHub 仓库的 Secrets 中设置了 TOKEN_1110,
+          GITHUB_TOKEN: ${{ secrets.TOKEN_1110 }}  # Ensure this secret is set in GitHub repository settings
+
