@@ -19,6 +19,21 @@ jobs:
           node-version: '20'
           cache: 'npm'
 
+      - name: Cache node modules
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-node-modules
+        with:
+          # npm 缓存文件的路径
+          path: ~/.npm
+          # 这个键会表示缓存的内容
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          # 当package-lock.json文件没有变化时，恢复键会尝试恢复精确匹配的缓存。如果精确匹配的缓存没有找到，它会恢复共享前缀的最新缓存
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+
       - name: Install Dependencies
         run: npm ci
 
@@ -35,7 +50,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN_1110 }}
 
-      # 如果需要，使用 peaceiris/actions-gh-pages 将构建内容推送到 gh-pages 分支
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
