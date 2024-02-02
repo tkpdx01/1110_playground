@@ -27,16 +27,16 @@ const siteConfig = {
   customDocsPath: path.basename(__dirname) + '/docs',
 
   title: '1110 PLAYGROUND', // Title for your website.
-  tagline: 'A website for testing',
-  url: 'https://your-docusaurus-test-site.com', // Your website URL
+  tagline: '网络技术试验场',
+  url: 'https://1110.xax920.eu.org', // Your website URL
   baseUrl: '/', // Base URL for your project */
   // For github.io type URLs, you would set the url and baseUrl like:
   //   url: 'https://facebook.github.io',
   //   baseUrl: '/test-site/',
 
   // Used for publishing and more
-  projectName: 'test-site',
-  organizationName: 'facebook',
+  projectName: '1110playground',
+  organizationName: '1110',
   // For top-level user or org sites, the organization is still the same.
   // e.g., for the https://JoelMarcey.github.io site, it would be set like...
   //   organizationName: 'JoelMarcey'
@@ -59,8 +59,8 @@ const siteConfig = {
 
   /* Colors for website */
   colors: {
-    primaryColor: '#03453a',
-    secondaryColor: '#023028',
+    primaryColor: '#25c19f',
+    secondaryColor: '#1c1e21',
   },
 
   /* Custom fonts for website */
@@ -78,7 +78,7 @@ const siteConfig = {
   */
 
   // This copyright info is used in /core/Footer.js and blog RSS/Atom feeds.
-  copyright: `Copyright © ${new Date().getFullYear()} 1110 Playground`,
+  copyright: `Copyright © ${new Date().getFullYear()} 1110`,
 
   highlight: {
     // Highlight.js theme to use for syntax highlighting in code blocks.
