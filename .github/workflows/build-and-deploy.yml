@@ -25,9 +25,19 @@ jobs:
       - name: Build
         run: npm run build
 
-      # 这个步骤用于将构建好的文件推送到gh-pages分支
+      - name: Commit and Push
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add build/
+          git diff --quiet && git diff --staged --quiet || git commit -m "Automated build commit"
+          git push https://${{ secrets.TOKEN_1110 }}:x-oauth-basic@github.com/${{ github.repository }} HEAD:${{ github.ref }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN_1110 }}
+
+      # 如果需要，使用 peaceiris/actions-gh-pages 将构建内容推送到 gh-pages 分支
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}  # 使用 GITHUB_TOKEN 无需额外设置
-          publish_dir: ./build  # 设置为 Docusaurus build 命令的输出目录
+          github_token: ${{ secrets.TOKEN_1110 }}  # 使用您提供的TOKEN_1110
+          publish_dir: ./build  # 确保这是您的构建输出目录
