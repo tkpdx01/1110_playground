@@ -1,0 +1,36 @@
+name: Build and Deploy
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+          fetch-depth: 0  # 确保获取完整的历史记录以正确提交 
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2  # 使用 v2
+        with:
+          node-version: '20'  # 使用 Node.js 版本 20
+          cache: 'npm'  # 启用自动缓存
+
+      - name: Install Dependencies
+        run: npm ci  # 使用 npm ci 以利用缓存
+
+      - name: Build
+        run: npm run build
+
+      - name: Commit and Push
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add build/
+          git diff --quiet && git diff --staged --quiet || git commit -m "Automated build commit"  # 更有效的检查是否有变化
+          git push https://${{ secrets.TOKEN_1110 }}:x-oauth-basic@github.com/${{ github.repository }} HEAD:${{ github.ref }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN_1110 }}  # 确保这个密钥在 GitHub 仓库设置中被设置

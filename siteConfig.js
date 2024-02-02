@@ -27,8 +27,8 @@ const siteConfig = {
   customDocsPath: path.basename(__dirname) + '/docs',
 
   title: '1110 PLAYGROUND', // Title for your website.
-  tagline: 'A website for testing',
-  url: 'https://your-docusaurus-test-site.com', // Your website URL
+  tagline: '网络技术试验场',
+  url: 'https://1110.xax920.eu.org', // Your website URL
   baseUrl: '/', // Base URL for your project */
   // For github.io type URLs, you would set the url and baseUrl like:
   //   url: 'https://facebook.github.io',
@@ -59,8 +59,8 @@ const siteConfig = {
 
   /* Colors for website */
   colors: {
-    primaryColor: '#03453a',
-    secondaryColor: '#023028',
+    primaryColor: '#25c19f',
+    secondaryColor: '#1c1e21',
   },
 
   /* Custom fonts for website */
